@@ -1,0 +1,9 @@
+[submodule "vendor/github.com/julienschmidt/httprouter"]
+	path = vendor/github.com/julienschmidt/httprouter
+	url = https://github.com/julienschmidt/httprouter
+[submodule "vendor/googlemaps.github.io/google-maps-services-go"]
+	path = vendor/googlemaps.github.io/maps
+	url = https://github.com/googlemaps/google-maps-services-go
+[submodule "vendor/golang.org/x/net"]
+	path = vendor/golang.org/x/net
+	url = https://github.com/golang/net
