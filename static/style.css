@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #333;
+}
+
+.container {
+  width: 99%;
+  max-width: 625px;
+  margin: 5% auto;
+}
+
+header,
+section {
+  margin: 20px;
+}
+header {
+  margin-bottom: 10px;
+}
+footer {
+  margin-top: 120px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+#query,
+input[type=text] {
+  outline: 0;
+  font-size: inherit;
+  border: 0;
+  color: #333;
+  background-color: rgba(0,0,0,0);
+  text-overflow: ellipsis;
+}
+
+.table {
+  position: relative;
+  display: table;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.search-bar {
+  border: 2pt solid #333;
+  border-radius: 2em;
+  padding: 0 0.5em;
+}
+
+.table-cell {
+  display: table-cell;
+  padding: 8px 10px;
+}
+
+.tc-100 {
+  width: 96%;
+}
+
+.tc-1 {
+  width: 1%;
+}
+
+/*
+.units {
+  position: absolute;
+  bottom: 5px;
+  right: -30px;
+}
+*/
+
+.units {
+  text-align: center;
+}
+
+a {
+  color: blue;
+}

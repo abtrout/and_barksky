@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Forecats</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/forecats.ico">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Forecats</h1>
+        </header>
+        <video width=100% height=auto autoplay loop webkit-plays-inline>
+            <source src="//i.imgur.com/{{ .ImgurID }}.mp4" type="video/mp4">
+            <source src="//i.imgur.com/{{ .ImgurID }}.webm" type="video/webm">
+        </video>
+        <section>
+            <form action="/search" method="post">
+                <div class="table search-bar">
+                    <input type="text" name="query" id="query" class="table-cell tc-100" {{ if .Name }} value="{{ .Name }}" {{ end }} placeholder="Enter a location and press search">
+                    <span class="table-cell tc-1">
+                        <input type="submit" value="Search">
+                    </span>
+                </div>
+                {{ if .IsSearchFailed }}
+                <div class="table">
+                    <div class="table-cell tc-100">
+                        <strong>Search failed!</strong>
+                        <em>Try another query.</em>
+                    </div>
+                </div>
+                {{ end }}
+            </form>
+        </section>
+        {{ if .IsFrameReady }}
+        <section>
+            <iframe type="text/html" frameborder=0 width=100% height=245 src="//forecast.io/embed/#lat={{ .Lat }}&lon={{ .Lng }}&units={{ .Units }}"></iframe>
+            <div class="units">
+              {{ if eq .Units "uk" }}
+                  <a href="/forecast/{{ .Lat }},{{ .Lng }}/us"><em>°F</em></a>
+              {{ else }}
+                <span>°F</span>
+              {{ end }}
+              {{ if eq .Units "us" }}
+                  <a href="/forecast/{{ .Lat }},{{ .Lng }}/uk"><em>°C</em></a>
+              {{ else }}
+                <span>°C</span>
+              {{ end }}
+            </div>
+        </section>
+        {{ end }}
+        <footer>
+            More of a dog fan? Try
+            {{ if .IsFrameReady }}
+              <a href="//barksky.net/forecast/{{ .Lat }},{{ .Lng }}">Barksky</a>
+            {{ else }}
+              <a href="//barksky.net">Barksky</a>
+            {{ end }}
+            instead! 
+        </footer>
+    </div>
+    <script type="text/javascript">
+      document._EUGO = '92179e0a495751e67c41';
+      document.head.appendChild(function() {
+        var s = document.createElement('script');
+        s.src = 'https://eugo.ws/eugo.js';
+        s.async = 1;
+        return s;
+      }());
+    </script>
+</body>
+</html>
